@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tekup.de/loan/soap/ws/loanEligebilty"
+            xmlns:tns="http://www.tekup.de/loan/soap/ws/loanEligebilty"
+            elementFormDefault="qualified">
+    <!-- Request Object send it by the client -->
+    <xsd:element name="CustomerRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="customerName" type="xsd:string"/>
+                <xsd:element name="age" type="xsd:int"/>
+                <xsd:element name="yearlyIncome" type="xsd:long"/>
+                <xsd:element name="cibilScore" type="xsd:int"/>
+                <xsd:element name="employmentMode" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <!-- Response Object that will be send to the client -->
+    <xsd:element name="WsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="isEligeble" type="xsd:boolean"/>
+                <xsd:element name="approvedAmount" type="xsd:long"/>
+                <xsd:element name="criteriaMismatch" type="xsd:string" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
